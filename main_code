@@ -1,0 +1,366 @@
+/*import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLEventListener;
+import com.jogamp.opengl.GLProfile;
+import com.jogamp.opengl.awt.GLCanvas;*/
+
+import javax.media.opengl.GL;
+import javax.media.opengl.GL2;
+import javax.media.opengl.GLAutoDrawable;
+import javax.media.opengl.GLCapabilities;
+import javax.media.opengl.GLEventListener;
+import javax.media.opengl.GLProfile;
+import javax.media.opengl.awt.GLCanvas;
+
+import javax.swing.JFrame;
+
+import com.jogamp.opengl.util.Animator;
+
+import java.util.*;
+
+public class CohensutherlanCW implements GLEventListener {
+
+	static GLProfile profile = GLProfile.get(GLProfile.GL2);
+	static GLCapabilities capabilities = new GLCapabilities(profile);
+	// The canvas
+	static GLCanvas glcanvas = new GLCanvas(capabilities);
+	boolean flag = true;
+
+	float count =1;
+	String green="green";
+    String black="black";
+	
+	public static void main(String[] args) {
+		// getting the capabilities object of GL2 profile
+
+		CohensutherlanCW l = new CohensutherlanCW();
+		// creating frame
+		glcanvas.addGLEventListener(l);
+		glcanvas.setSize(1000, 800);
+
+		final JFrame frame = new JFrame("straight Line");
+		// adding canvas to frame
+		frame.getContentPane().add(glcanvas);
+		frame.setSize(frame.getContentPane().getPreferredSize());
+		frame.setVisible(true);
+		
+		
+		Animator animator = new Animator(glcanvas);
+		 animator.start();
+	}
+
+	GL2 gl;
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+	public void display(GLAutoDrawable drawable) {
+
+		try {
+/*
+			 gl = drawable.getGL().getGL2();
+				
+				    drawline(0.6f, 0.9f,0.6f,0.7f);//left handle
+				    drawline( 0.5f, 0.9f,0.5f,0.7f);//right handle
+                   
+				    
+				    
+				    drawline(0.1f, 0.7f,0.8f,0.7f);//upper
+			  	   	drawline(0.3f, 0.6f,0.8f,0.6f);//und
+			  	    
+			  	    
+			  	    
+			  	  drawline( 0.1f,0.4f,0.1f,0.7f); //left pipe
+			  	  drawline( 0.3f,0.4f,0.3f,0.6f); //right pipe
+			  	    
+     String green="green";
+     String black="black";
+			  	  
+			  	gl= drawable.getGL().getGL2();
+				draw8WayCircle(0.2f,0.4f,39f,green);
+				draw8WayCircle(0.2f,0.4f,28f,green);
+				draw8WayCircle(0.55f,0.90f,20f,green);
+				draw8WayCircle(0.55f,0.90f,10f,green);
+				
+			  	  
+				
+				
+	*/			
+				
+			  //	 float count =0;
+			  	 
+			  //for(int i=1;i<=5;i++){
+				  
+				  gl = drawable.getGL().getGL2();
+					
+				    drawline(0.6f, 0.9f,0.6f,0.7f);//left handle
+				    drawline( 0.5f, 0.9f,0.5f,0.7f);//right handle
+                 
+				    
+				    
+				    drawline(0.1f, 0.7f,0.8f,0.7f);//upper
+			  	   	drawline(0.3f, 0.6f,0.8f,0.6f);//und
+			  	    
+			  	    
+			  	    
+			  	  drawline( 0.1f,0.4f,0.1f,0.7f); //left pipe
+			  	  drawline( 0.3f,0.4f,0.3f,0.6f); //right pipe
+			  	    
+   
+			  	  
+			  	gl= drawable.getGL().getGL2();
+				draw8WayCircle(0.2f,0.4f,39f,green);
+				draw8WayCircle(0.2f,0.4f,28f,green);
+				draw8WayCircle(0.55f,0.90f,20f,green);
+				draw8WayCircle(0.55f,0.90f,10f,green);
+			
+				  
+				  
+				  
+				if(count==1)
+			  	 {
+					//gl.glClear (GL2.GL_COLOR_BUFFER_BIT);
+
+					
+					
+					
+					
+					
+					
+					
+					draw8WayCircle(0.2f,0.1f,39f,green);
+					draw8WayCircle(0.2f,-0.1f,35f,black);
+					draw8WayCircle(0.2f,-0.3f,30f,black);
+			  		draw8WayCircle(0.2f,-0.5f,25f,black);
+			  		draw8WayCircle(0.2f,-0.7f,15f,black);
+			  		
+			  		count=2;
+			  		
+			  	 }
+				
+			  	if(count==2)
+			  	 {
+			  		
+			  		
+			  		
+			  		
+			  		
+			  		
+			  		draw8WayCircle(0.2f,0.1f,39f,black);
+					draw8WayCircle(0.2f,-0.1f,35f,green);
+					draw8WayCircle(0.2f,-0.3f,30f,black);
+			  		draw8WayCircle(0.2f,-0.5f,25f,black);
+			  		draw8WayCircle(0.2f,-0.7f,15f,black);
+			  		
+			  		count=3;
+			  	 }
+			  	if(count==3)
+			  	 {
+			  		draw8WayCircle(0.2f,0.1f,39f,black);
+					draw8WayCircle(0.2f,-0.1f,35f,black);
+					draw8WayCircle(0.2f,-0.3f,30f,green);
+			  		draw8WayCircle(0.2f,-0.5f,25f,black);
+			  		draw8WayCircle(0.2f,-0.7f,15f,black);
+			  		count=4;
+			  	 }
+			  	if(count==4)
+			  	 {
+			  		draw8WayCircle(0.2f,0.1f,39f,black);
+					draw8WayCircle(0.2f,-0.1f,35f,black);
+					draw8WayCircle(0.2f,-0.3f,30f,black);
+			  		draw8WayCircle(0.2f,-0.5f,25f,green);
+			  		draw8WayCircle(0.2f,-0.7f,15f,black);
+			  		count=5;
+			  	 }
+			  	if(count==5)
+			  	 {
+			  		draw8WayCircle(0.2f,0.1f,39f,black);
+					draw8WayCircle(0.2f,-0.1f,35f,black);
+					draw8WayCircle(0.2f,-0.3f,30f,black);
+			  		draw8WayCircle(0.2f,-0.5f,25f,black);
+			  		draw8WayCircle(0.2f,-0.7f,15f,green);
+			  		count=1;
+			  	 }
+			  	
+			  	
+			    
+			  	
+			  
+			  	  if(count==1){
+			 	 gl.glClear (GL2.GL_COLOR_BUFFER_BIT);
+			  	  count=1;
+			  	  }
+			  	
+			  	  
+			  	  
+			  	  
+			  	  
+			  	    
+			     	
+			     
+			 gl.glBegin(GL2.GL_POINTS);// static field
+			gl.glEnd();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+
+	
+	
+	
+	
+	
+
+	public void drawline(float a, float b, float c, float d){
+		 
+	
+		gl.glBegin(GL2.GL_LINES);
+
+         
+		
+			
+
+		  gl.glColor3f(1,0,1);
+		  gl.glVertex2f(a,b);
+		  gl.glVertex2f(c,d);
+		  gl.glEnd();
+			
+		
+  
+	
+		
+		
+ }
+
+	
+
+
+	float x;
+  	float y;
+  	float rot = 0;
+  	
+  	void createcircle (float k,float r,float h) {
+  		gl.glBegin(GL2.GL_LINES);
+  		
+  	    for (int i = 0; i < 180; i++)
+  	    {
+  	    x = r * (float) Math.cos(i)- h;
+  	    y = r * (float)Math.sin(i) + k;
+  	    
+  	    gl.glVertex3f(x + k,y-h,0);
+  	    
+  	    x = r * (float)Math.cos(i + 0.1) - h;
+  	    y = r * (float)Math.sin(i + 0.1) + k;
+  	    gl.glVertex3f(x+k,y-h,0);
+  	    }
+  	    gl.glEnd();
+  	}	
+	
+	
+
+
+	public void draw8WayCircle(float i,float j,float r,String color){
+		
+		float x=r;
+		float y=0.0f;
+		float cex=i;
+		float cey=j;
+		float d=5/4-r;
+		float dn;
+		float dnw;
+		draw8Way(x/400,y/400,cex,cey,color);
+		while (y<=x){
+			if(d<=0){
+				dn=(2*y) +3;
+				d+=dn;
+				y++;
+			}else{
+
+				dnw=-(2*x)+(2*y)+5;
+				d+=dnw;
+				y++;
+				x--;
+			}
+			draw8Way(x/400,y/400,cex,cey,color);
+		}
+
+
+	}
+	public void draw8Way(float x, float y,float cex, float cey,String color){
+		   drawPixel(cex+x,cey+y,color);
+		   drawPixel(cex-x,cey+y,color);
+		   drawPixel(cex+x,cey-y,color);
+		   drawPixel(cex-x,cey-y,color);
+		   drawPixel(cex+y,cey+x,color);
+		   drawPixel(cex-y,cey+x,color);
+		   drawPixel(cex+y,cey-x,color);
+		   drawPixel(cex-y,cey-x,color);
+	}
+		   
+	public void drawPixel(float x , float y,String color){
+		gl.glBegin (GL2.GL_POINTS);
+		
+		if(color=="green"){
+		gl.glVertex2f(x,y);
+
+		  gl.glColor3f(0,1,0);
+		  
+		  gl.glEnd();
+			
+		
+		
+		
+		
+		}
+		if(color=="black"){
+			gl.glVertex2f(x,y);
+			gl.glColor3f(0,0,0);
+		    gl.glEnd();
+				
+			
+			}
+			
+		
+		gl.glEnd();
+	}
+  	
+  
+	   
+	public void dispose(GLAutoDrawable arg0) {
+		// method body
+	}
+
+	public void init(GLAutoDrawable drawable) {
+		// method body
+		// 4. drive the display() in a loop
+	}
+
+	public void reshape(GLAutoDrawable arg0, int arg1, int arg2, int arg3, int arg4) {
+		// method body
+	}
+	// end of main
+}// end of classimport javax.media.opengl.GL2;
